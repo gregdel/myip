@@ -1,0 +1,16 @@
+sudo: false
+language: go
+go:
+- 1.9.1
+script:
+  - go build -o myip_linux_amd64 .
+deploy:
+  provider: releases
+  overwrite: true
+  skip_cleanup: true
+  api_key:
+    secure: IrWx+vlTEoHVJ/qm8WYlkPeEbu6PMGjRMU6FR+BNsbINqbjTMzBQy/ZBj9DwlzTchhoFPt4k3F21SKnruu7/WyCCz2EvS19g5A98mmFdSnY7y8xaCmUejieZuEodTR7xKgJ2jY3BWAx89SI/1T20Dz6H/qaTOFBoPU8bcR2p59AxhCOBm7aXXVYK+jEz3L0nyqrQFIPNuSu5nQsRZ+sRfPdUokklbhLMjwAYlhpvlSWips+2aquAey5r780I6jrDKJDm6h1CD2fsIrQ7xkLu8x2hWuf1ZrHKqMIevN5IH+rFWsD0A/LKw41FMOaDlw7BZWT2WoheqbxdPozZwgGm2b9XR7HbE2pIYb29RlEGoJfaeEX9ESMG/MP9IyUaFt58XWxbKhNjivL843e4oy1rFlk2y/EKUCBXZVafr1GTKTpxO2Gut7bkhV4ra2qas5Th/4HVz6JJpCKB7bPp5vbVWmn/BtRTG5Z/AIARBpnQk5A5dnBYkOMPRy9yoorXBtpak5IiuuMSvJdusBIWRqqxRp9lRIXfftMWADM2vfe9VaXBLCQoFdnMVIUc2uqVvYRBYM7SqH+tJYSPgL1iCQzGVJCGfaPdxLK+fa3bWYoAv6cKFahjmm4fyvs5/47sOu2m1JQZmE9R+/3+89EPkzFpxIlJexU6grd2iSQDj0j0qYE=
+  file:
+  - myip_linux_amd64
+  on:
+    tags: true
