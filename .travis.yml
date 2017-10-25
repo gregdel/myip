@@ -1,9 +1,11 @@
 sudo: false
 language: go
 go:
-- 1.9.1
+  - 1.9.1
+env:
+  - CGO_ENABLED=0
 script:
-  - go build -o myip_linux_amd64 .
+  - go build -a -v -o myip_linux_amd64 .
 deploy:
   provider: releases
   overwrite: true
